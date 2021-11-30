@@ -1,0 +1,19 @@
+.logo{
+    margin-left: 10px;
+}
+
+.hamburger{
+    margin-right: 10px;
+}
+
+.nav-item{
+    margin-left: 20px;
+}
+
+.login-button{
+flex: right;
+}
+
+.signup-button{
+    flex: right;
+}
