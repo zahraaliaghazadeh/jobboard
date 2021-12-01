@@ -9,6 +9,5 @@ export default function SearchPage() {
         <div>
             Search Page
         </div>
-
     )
 }
