@@ -9,6 +9,7 @@ import Navbar from "./Components/Navbar"
 
 import './App.css';
 import JobDetails from "./Pages/JobDetailsPage";
+import { URL_FAVORITES, URL_JOB_DETAILS, URL_LOGIN, URL_ROOT, URL_SEARCH, URL_SIGNUP } from "./constants/routes";
 
 function App() {
 
@@ -17,18 +18,12 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path={"/"} element={<LandingPage />}>
-        </Route>
-        <Route exact path={"/search-page"} element={<SearchPage />}>
-        </Route>
-        <Route exact path={"/favorites-page"} element={<FavoritesPage />}>
-        </Route>
-        <Route exact path={"/login-page"} element={<LoginPage />}>
-        </Route>
-        <Route exact path={"/signup-page"} element={<SignUpPage />}>
-        </Route>
-        <Route exact path={"/job-details/:id"} element={<JobDetails />}>
-        </Route>
+        <Route exact path={URL_ROOT} element={<LandingPage />} />
+        <Route exact path={URL_SEARCH} element={<SearchPage />} />
+        <Route exact path={URL_FAVORITES} element={<FavoritesPage />} />
+        <Route exact path={URL_LOGIN} element={<LoginPage />} />
+        <Route exact path={URL_SIGNUP} element={<SignUpPage />} />
+        <Route exact path={URL_JOB_DETAILS} element={<JobDetails />} />
       </Routes>
     </Router>
   );

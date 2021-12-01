@@ -67,6 +67,47 @@ router.get('/job/search', async function (req, res) {
   }
 })
 
+
+router.get('/job/favorite', async function (req, res) {
+  const userId = '61a5bfb48305a9ad9740e4ec'; // TODO replace once login implemented
+  try {
+    const favoriteJobIds = await UserAccessor.getFavoriteJobIds(userId);
+    res.send({ favoriteJobIds: favoriteJobIds })
+  } catch (err) {
+    console.error(err);
+    res.status(statusCode.INTERNAL_SERVER_ERROR);
+    res.send({ err: err })
+  }
+})
+
+router.post('/job/favorite', async function (req, res) {
+  const body = req.body;
+  const userId = '61a5bfb48305a9ad9740e4ec'; // TODO replace once login implemented
+  const jobId = body.jobId;
+  try {
+    await UserAccessor.appendFavoriteJobId(userId, jobId);
+  } catch (err) {
+    console.error(err);
+    res.status(statusCode.INTERNAL_SERVER_ERROR);
+    res.send({ success: false, err: err })
+  }
+  res.send({ success: true })
+})
+
+
+router.delete('/job/favorite/:id', async function (req, res) {
+  const userId = '61a5bfb48305a9ad9740e4ec'; // TODO replace once login implemented
+  const jobId = req.params.id;
+  try {
+    await UserAccessor.removeFavoriteJobId(userId, jobId);
+  } catch (err) {
+    console.error(err);
+    res.status(statusCode.INTERNAL_SERVER_ERROR);
+    res.send({ success: false, err: err })
+  }
+  res.send({ success: true })
+})
+
 router.post('/login', async function (req, res) {
   // const body = req.body;
   // const hash = await bcrypt.hash(body.password, SALT_ROUNDS)

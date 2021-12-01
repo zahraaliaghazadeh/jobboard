@@ -1,6 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
+import { URL_SEARCH } from "../../constants/routes";
 
 
 export default function LandingPage() {
@@ -16,6 +17,18 @@ export default function LandingPage() {
                 </div>
                 <div className="row">
                 </div>
+              <form action={URL_SEARCH} method={"get"}>
+                <input
+                  type="text"
+                  name="q"
+                  placeholder="Search jobs"
+                  aria-label="Search"
+                  style={{
+                    marginBottom: '15px'
+                  }}
+                />
+                <button type="submit">Search Jobs</button>
+              </form>
             </div>
 
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
+import { URL_ROOT } from "../../constants/routes";
 // import { Link, useHistory } from "react-router-dom";
 
 export default function Navbar() {
@@ -19,8 +20,10 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         {/* <a className="navbar-brand logo" href="#">Battleship</a> */}
-        <div className="logo"><img src="/favicon.ico" alt="logo of a battleship"></img></div>
-        <div className="navbar-brand logo">Job Board</div>
+        <a className="logo" href={URL_ROOT}>
+          <div className="logo"><img src="/favicon.ico" alt="logo of a battleship"></img></div>
+          <div className="navbar-brand logo">Job Board</div>
+        </a>
         <button
           onClick={() => toggleHamburger()}
           className="navbar-toggler hamburger"
@@ -42,9 +45,9 @@ export default function Navbar() {
               </a>
             </li>
             <li>
-              <input class="form-control mr-sm-2" type="search" placeholder="Search jobs" aria-label="Search">
-              </input>
-              <button type="button" class="btn btn-warning"><a className="btn-link" href="/search-page">Search Jobs</a></button>
+              {/*<input class="form-control mr-sm-2" type="search" placeholder="Search jobs" aria-label="Search">*/}
+              {/*</input>*/}
+              {/*<button type="button" class="btn btn-warning"><a className="btn-link" href="/search-page">Search Jobs</a></button>*/}
             </li>
           </ul>
 

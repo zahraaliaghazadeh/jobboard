@@ -9,6 +9,7 @@ exports.UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    favoriteJobIds: []
 // this explicitly declares what collection we're using
 }, { collection : 'users' });
