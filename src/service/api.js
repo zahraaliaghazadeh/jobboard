@@ -1,5 +1,6 @@
 const URL_PREFIX = 'http://localhost:8000/api/jobboard';
 
+const PATH_LOGIN = '/login';
 const PATH_JOB_ID = '/job/id';
 const PATH_JOB_SEARCH = '/job/search';
 const PATH_JOB_FAVORITES = '/job/favorite';
@@ -8,6 +9,16 @@ const QUERY_PARAM_SEARCH = 'query';
 
 const axios = require('axios').default;
 
+
+export const login = async (username, password) => {
+  const path = `${URL_PREFIX}${PATH_LOGIN}`
+
+  const res = await axios.post(path, {
+    username: username,
+    password: password
+  });
+  return res.data;
+}
 
 export const getJob = async (id) => {
   const path = `${URL_PREFIX}${PATH_JOB_ID}/${id}`
@@ -27,7 +38,7 @@ export const getFavoriteJobs = async () => {
   const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}`
 
   const res = await axios.get(path);
-  return res.data.favoriteJobIds;
+  return res.data;
 }
 
 export const addJobToFavorites = async (jobId) => {

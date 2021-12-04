@@ -7,6 +7,10 @@ function getJobById(id) {
   return JobBoardModel.findById(id);
 }
 
+function getJobByIds(ids) {
+  return JobBoardModel.find().where('_id').in(ids).exec();
+}
+
 function insertJob(job) {
     return JobBoardModel.create(job);
 }
@@ -38,6 +42,7 @@ function findJob(queryString) {
 // Make sure to export a function after you create it!
 module.exports = {
   getJobById,
+  getJobByIds,
   insertJob,
   findJob,
     // findJobBoardByName,

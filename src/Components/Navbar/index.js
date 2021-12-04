@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { URL_ROOT } from "../../constants/routes";
+import { URL_FAVORITES, URL_LOGIN, URL_ROOT, URL_SIGNUP } from "../../constants/routes";
 // import { Link, useHistory } from "react-router-dom";
 
 export default function Navbar() {
@@ -44,21 +44,31 @@ export default function Navbar() {
                 Home
               </a>
             </li>
-            <li>
-              {/*<input class="form-control mr-sm-2" type="search" placeholder="Search jobs" aria-label="Search">*/}
-              {/*</input>*/}
-              {/*<button type="button" class="btn btn-warning"><a className="btn-link" href="/search-page">Search Jobs</a></button>*/}
-            </li>
           </ul>
 
 
 
-          <ul class="nav navbar-nav navbar-right pull-right">
+          <ul className="nav navbar-nav navbar-right pull-right">
             <li>
-            <button type="button" class="btn btn-warning login-button"><a className="btn-link" href="/login-page">Login</a></button>
+              <button type="button" className="btn btn-warning login-button">
+                <a className="btn-link" href={URL_LOGIN}>
+                  Login
+                </a>
+              </button>
             </li>
             <li>
-            <button type="button" class="btn btn-warning signup-button"><a className="btn-link" href="/signup-page">Sign Up</a></button>
+              <button type="button" className="btn btn-warning signup-button">
+                <a className="btn-link" href={URL_SIGNUP}>
+                  Sign Up
+                </a>
+              </button>
+            </li>
+            <li>
+              <button type="button" className="btn btn-warning signup-button">
+                <a className="btn-link" href={URL_FAVORITES}>
+                  Favorites
+                </a>
+              </button>
             </li>
           </ul>
         </div>

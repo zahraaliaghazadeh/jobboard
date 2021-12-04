@@ -7,10 +7,12 @@ function createNewUser(user) {
     return UserModel.create(user);
 }
 
-function getUserByName(username) {
-  return UserModel.find({
+async function getUserByName(username) {
+  const res = await UserModel.find({
     username: username
   }).exec();
+  return res.length > 0 ? res[0] : null;
+
 }
 
 async function getFavoriteJobIds(userId) {

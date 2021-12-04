@@ -39,14 +39,15 @@ export default function JobDetails() {
       const fetchJob = async () => {
         try {
           const job = await getJob(id)
-          const favoriteJobIds = await getFavoriteJobs();
+          const favorites = await getFavoriteJobs();
           setJob(job);
-          setIsJobFavorited(favoriteJobIds.includes(job._id))
+          setIsJobFavorited(favorites.favoriteJobIds.includes(job._id))
         } catch (err) {
           console.error(err);
         }
       }
       fetchJob();
+      // eslint-disable-next-line
     }, []);
 
     return (
