@@ -3,7 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { getFavoriteJobs } from "../../service/api";
 import JobCard from "../../Components/JobCard";
-import { URL_ROOT } from "../../constants/routes";
+import { URL_JOB_DETAILS_DYNAMIC, URL_ROOT } from "../../constants/routes";
+import { Link } from "react-bootstrap-icons";
 
 
 
@@ -38,7 +39,11 @@ export default function FavoritesPage() {
             <h2>Favorited Jobs:</h2>
             {
               favoriteJobs.map((job, index) => (
-                <JobCard key={index} job={job} />
+                <a key={index} href={URL_JOB_DETAILS_DYNAMIC(job._id)} style={{
+                  textDecoration: 'none'
+                }}>
+                  <JobCard key={index} job={job} />
+                </a>
               ))
             }
           </div>

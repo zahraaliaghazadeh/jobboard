@@ -11,6 +11,14 @@ function getJobByIds(ids) {
   return JobBoardModel.find().where('_id').in(ids).exec();
 }
 
+function updateJob(jobId, job) {
+  return JobBoardModel.findById(jobId).updateOne(job);
+}
+
+function deleteJob(jobId) {
+  return JobBoardModel.findById(jobId).deleteOne();
+}
+
 function insertJob(job) {
     return JobBoardModel.create(job);
 }
@@ -45,6 +53,8 @@ module.exports = {
   getJobByIds,
   insertJob,
   findJob,
+  updateJob,
+  deleteJob
     // findJobBoardByName,
     // getAllJobBoard,
     // findJobBoardById
