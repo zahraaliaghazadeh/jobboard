@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { queryJobs } from "../../service/api";
 import { parse } from 'query-string';
 import JobCard from "../../Components/JobCard";
+import { URL_JOB_DETAILS_DYNAMIC } from "../../constants/routes";
+import { Link } from "react-bootstrap-icons";
 
 
 export default function SearchPage() {
@@ -25,7 +27,6 @@ export default function SearchPage() {
     // eslint-disable-next-line
   }, []);
 
-  console.log(jobs);
   return (
     <div>
       {
@@ -37,7 +38,11 @@ export default function SearchPage() {
       }
       {
         jobs && jobs.map((job, index) => (
-          <JobCard key={index} job={job} />
+          <a key={index} href={URL_JOB_DETAILS_DYNAMIC(job._id)} style={{
+            textDecoration: 'none'
+          }}>
+            <JobCard key={index} job={job} />
+          </a>
         ))
       }
     </div>

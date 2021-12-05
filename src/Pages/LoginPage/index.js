@@ -2,22 +2,28 @@ import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { login } from "../../service/api";
+import { URL_ROOT } from "../../constants/routes";
+import { useNavigate } from "react-router-dom";
 
-export default function LoginPage() {
+export default function LoginPage(props) {
+  const { setGlobalUsername } = props;
+
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isInvalidCredentials, setIsInvalidCredentials] = useState(false);
 
   const onLoginClick = async () => {
     try {
-      const res = await login(username, password)
+      await login(username, password)
+      setGlobalUsername(username);
+      navigate(URL_ROOT);
     } catch (err) {
-      console.log(err.response)
       if (err.response.data.errorCode === 'INVALID_CREDENTIALS') {
         setIsInvalidCredentials(true);
       }
     }
-    // TODO redirect
   }
 
   return (
@@ -29,7 +35,7 @@ export default function LoginPage() {
         setPassword(e.target.value)
       }}/>
       <button onClick={onLoginClick}>Login</button>
-      {isInvalidCredentials && <p className="label label-danger">Invalid username or password</p>}
+      {isInvalidCredentials && <p className="text-danger">Invalid username or password</p>}
     </div>
   )
 }

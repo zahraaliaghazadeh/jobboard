@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { URL_FAVORITES, URL_LOGIN, URL_ROOT, URL_SIGNUP } from "../../constants/routes";
-// import { Link, useHistory } from "react-router-dom";
+import { URL_FAVORITES, URL_LOGIN, URL_MY_JOBS, URL_ROOT, URL_SETTINGS, URL_SIGNUP } from "../../constants/routes";
+import { logout } from "../../service/api";
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const { username } = props;
+
   const [showHamburgerContent, setShowHamburgerContent] = useState(false);
 
   const show = (showHamburgerContent) ? "show" : "";
@@ -14,9 +16,16 @@ export default function Navbar() {
     setShowHamburgerContent(!showHamburgerContent);
   }
 
+  const onLogoutClick = async () => {
+    try {
+      await logout()
+      window.location = URL_ROOT
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
-
-
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         {/* <a className="navbar-brand logo" href="#">Battleship</a> */}
@@ -49,27 +58,56 @@ export default function Navbar() {
 
 
           <ul className="nav navbar-nav navbar-right pull-right">
-            <li>
-              <button type="button" className="btn btn-warning login-button">
-                <a className="btn-link" href={URL_LOGIN}>
-                  Login
-                </a>
-              </button>
-            </li>
-            <li>
-              <button type="button" className="btn btn-warning signup-button">
-                <a className="btn-link" href={URL_SIGNUP}>
-                  Sign Up
-                </a>
-              </button>
-            </li>
-            <li>
-              <button type="button" className="btn btn-warning signup-button">
-                <a className="btn-link" href={URL_FAVORITES}>
-                  Favorites
-                </a>
-              </button>
-            </li>
+            {
+              !username && (
+                <li>
+                  <button type="button" className="btn btn-warning login-button">
+                    <a className="btn-link" href={URL_LOGIN}>
+                      Login
+                    </a>
+                  </button>
+                </li>
+              )
+            }
+            {
+              !username && (
+                <li>
+                  <button type="button" className="btn btn-warning signup-button">
+                    <a className="btn-link" href={URL_SIGNUP}>
+                      Sign Up
+                    </a>
+                  </button>
+                </li>
+              )
+            }
+            {
+              username &&
+              <li>
+                <button type="button" className="btn btn-warning signup-button">
+                  <a className="btn-link" href={URL_FAVORITES}>
+                    Favorites
+                  </a>
+                </button>
+              </li>
+            }
+            {
+              username &&
+              <li>
+                <button type="button" className="btn btn-warning signup-button">
+                  <a className="btn-link" href={URL_MY_JOBS}>
+                    {username}
+                  </a>
+                </button>
+              </li>
+            }
+            {
+              username &&
+              <li>
+                <button onClick={onLogoutClick} type="button" className="btn btn-warning signup-button">
+                    Logout
+                </button>
+              </li>
+            }
           </ul>
         </div>
       </nav>
