@@ -59,6 +59,16 @@ app.use('/api/jobboard', jobboard);
 //   // res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
 
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', function (req, res) {
+  console.log("received request");
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+  // res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 app.listen(PORT, function() {
   console.log(`Starting server: ${PORT}`);
 });
