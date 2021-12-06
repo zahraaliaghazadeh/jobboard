@@ -32,9 +32,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "cd server && nodemon ./server.js",
-    "react": "react-scripts start",
-    "dev": "concurrently \"npm run start\" \"npm run react\"",
+    "start": "react-scripts start",
+    "api": "node src/server/server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run start\"",
+    "heroku-postbuild": "npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
