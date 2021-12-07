@@ -4,7 +4,7 @@ import "./style.css";
 import { getFavoriteJobs } from "../../service/api";
 import JobCard from "../../Components/JobCard";
 import { URL_JOB_DETAILS_DYNAMIC, URL_ROOT } from "../../constants/routes";
-import { Link } from "react-bootstrap-icons";
+
 
 
 

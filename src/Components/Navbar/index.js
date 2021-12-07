@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { URL_FAVORITES, URL_LOGIN, URL_MY_JOBS, URL_ROOT, URL_SETTINGS, URL_SIGNUP } from "../../constants/routes";
+import { URL_FAVORITES, URL_LOGIN, URL_MY_JOBS, URL_ROOT, URL_SIGNUP } from "../../constants/routes";
 import { logout } from "../../service/api";
 
 export default function Navbar(props) {

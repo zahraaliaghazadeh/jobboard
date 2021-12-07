@@ -6,7 +6,6 @@ import { queryJobs } from "../../service/api";
 import { parse } from 'query-string';
 import JobCard from "../../Components/JobCard";
 import { URL_JOB_DETAILS_DYNAMIC } from "../../constants/routes";
-import { Link } from "react-bootstrap-icons";
 
 
 export default function SearchPage() {
