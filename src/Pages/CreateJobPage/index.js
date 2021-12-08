@@ -5,7 +5,7 @@ import { createJob } from "../../service/api";
 import { URL_MY_JOBS } from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
 import ImageUploader from 'react-images-upload';
-import { convertFromRaw, convertToRaw } from 'draft-js';
+import { convertToRaw } from 'draft-js';
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
@@ -76,12 +76,6 @@ export default function CreateJobPage() {
           location: e.target.value
         })
       }}/>
-      {/*<input type="text" name="description" placeholder="description" value={newJob.description} onChange={(e) => {*/}
-      {/*  setNewJob({*/}
-      {/*    ...newJob,*/}
-      {/*    description: e.target.value*/}
-      {/*  })*/}
-      {/*}}/>*/}
       <input type="text" name="email" placeholder="email" value={newJob.email} onChange={(e) => {
         setNewJob({
           ...newJob,

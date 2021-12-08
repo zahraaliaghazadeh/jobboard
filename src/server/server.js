@@ -11,7 +11,7 @@ const path = require('path');
 const PORT = 8000;
 
 //Setup MongoDB Connection
-const MONGO_DB_URL = 'mongodb+srv://admin:admin@cluster0.yvhvj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const MONGO_DB_URL = 'mongodb+srv://admin:admin@cluster0.klxah.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 require('dotenv').config()
 

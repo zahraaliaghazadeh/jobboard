@@ -38,7 +38,7 @@ export default function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         {/* <a className="navbar-brand logo" href="#">Battleship</a> */}
-        <a className="logo" href={URL_ROOT}>
+        <a className="logo " href={URL_ROOT}>
           <div className="logo"><img src="/favicon.ico" alt="logo of a battleship"></img></div>
           <div className="navbar-brand logo">Job Board</div>
         </a>
@@ -55,68 +55,72 @@ export default function Navbar(props) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className={"collapse navbar-collapse " + show} id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
+        <div className={"collapse navbar-collapse w-100 order-1 order-md-0 dual-collapse2 " + show} id="navbarSupportedContent">
+          {/*<ul className="navbar-nav mr-auto">*/}
+          {/* */}
+          {/*</ul>*/}
+
+
+
+          <ul className="nav navbar-nav navbar-right pull-right">
             <li className="nav-item active">
               <a className="nav-link sr-only" href="/">
                 Home
               </a>
             </li>
-          </ul>
-
-
-
-          <ul className="nav navbar-nav navbar-right pull-right">
             {
               !username && (
-                <li>
-                  <button type="button" className="btn btn-warning login-button" onClick={onLoginClick}>
-                    {/*<a className="btn-link" href={URL_LOGIN}>*/}
+                <li className="nav-item active" onClick={onLoginClick}>
+                  {/*<button type="button" className="btn btn-warning login-button" onClick={onLoginClick}>*/}
+                    <a className="nav-link">
                       Login
-                    {/*</a>*/}
-                  </button>
+                    </a>
+                  {/*</button>*/}
                 </li>
               )
             }
             {
               !username && (
-                <li>
-                  <button type="button" className="btn btn-warning signup-button">
-                    <a className="btn-link" href={URL_SIGNUP}>
+                <li className="nav-item active">
+                  {/*<button type="button" className="btn btn-warning signup-button">*/}
+                    <a className="nav-link" href={URL_SIGNUP}>
                       Sign Up
                     </a>
-                  </button>
+                  {/*</button>*/}
                 </li>
               )
             }
             {
               username &&
-              <li>
-                <button type="button" className="btn btn-warning signup-button">
-                  <a className="btn-link" href={URL_FAVORITES}>
+              <li className="nav-item active">
+                {/*<button type="button" className="btn btn-warning signup-button">*/}
+                  <a className="nav-link" href={URL_FAVORITES}>
                     Favorites
                   </a>
-                </button>
+                {/*</button>*/}
               </li>
             }
             {
               username &&
-              <li>
-                <button type="button" className="btn btn-warning signup-button">
-                  <a className="btn-link" href={URL_MY_JOBS}>
+              <li className="nav-item active">
+                {/*<button type="button" className="btn btn-warning signup-button">*/}
+                  <a className="nav-link" href={URL_MY_JOBS}>
                     {username}
                   </a>
-                </button>
+                {/*</button>*/}
               </li>
             }
             {
               username &&
-              <li>
-                <button onClick={onLogoutClick} type="button" className="btn btn-warning signup-button">
-                    Logout
-                </button>
+              <li className="nav-item active">
+                {/*<button onClick={onLogoutClick} type="button" className="btn btn-warning signup-button">*/}
+                <a className="nav-link" onClick={onLogoutClick}>
+                  Logout
+                </a>
+                {/*</button>*/}
               </li>
             }
+
           </ul>
         </div>
       </nav>

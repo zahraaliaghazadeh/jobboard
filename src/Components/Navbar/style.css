@@ -1,6 +1,7 @@
 .logo{
     margin-left: 10px;
-    display: inline;
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
 }
 
@@ -18,4 +19,17 @@ flex: right;
 
 .signup-button{
     flex: right;
+}
+
+.nav-item-link {
+    text-decoration: none;
+    color: rgba(255,255,255,.55);
+}
+
+.nav-item {
+    padding: 20px 5px;
+}
+
+.nav-item.active {
+
 }

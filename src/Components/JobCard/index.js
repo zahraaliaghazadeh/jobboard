@@ -14,6 +14,13 @@ const JobCard = (props) => {
       <p>{job.companyName}</p>
       <p>{job.location}</p>
       <p>{job.email}</p>
+      <img
+        alt="logo"
+        src={job.image}
+        style={{
+          height: '50px',
+        }}
+      />
     </div>
   )
 }

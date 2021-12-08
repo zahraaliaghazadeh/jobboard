@@ -50,8 +50,8 @@ export default function EditJobPage() {
     })
   }
 
-
   const onUpdateClick = async () => {
+    setIsInvalidJob(false);
     if (!validateJob(job)) {
       setIsInvalidJob(true)
       return;
@@ -79,7 +79,7 @@ export default function EditJobPage() {
     const raw = convertToRaw(editorState.getCurrentContent())
     setJob({
       ...job,
-      description: raw
+      description: JSON.stringify(raw)
     })
   }
 

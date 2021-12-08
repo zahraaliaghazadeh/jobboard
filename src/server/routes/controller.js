@@ -122,21 +122,6 @@ router.put('/job/:id', authParser, async function (req, res) {
     res.status(statusCode.INTERNAL_SERVER_ERROR);
     res.send({ success: false, err: err })
   }
-
-  // const body = req.body;
-  // const userId = req.userId;
-  // const job = body.job;
-  // job.timestamp = new Date();
-  // try {
-  //   const newJob = await JobBoardAccessor.insertJob(job);
-  //   console.log(newJob);
-  //   await UserAccessor.appendJobId(userId, newJob._id);
-  // } catch (err) {
-  //   console.error(err);
-  //   res.status(statusCode.INTERNAL_SERVER_ERROR);
-  //   res.send({ success: false, err: err })
-  // }
-  // res.send({ success: true })
 })
 
 router.delete('/job/:id',  authParser, async function (req, res) {
@@ -157,7 +142,6 @@ router.delete('/job/:id',  authParser, async function (req, res) {
 router.get('/job/favorite', authParser, async function (req, res) {
   const userId = req.userId;
   try {
-    // const favoriteJobIds = await UserAccessor.getFavoriteJobIds(userId);
     const favoriteJobStatuses = await UserAccessor.getFavoriteJobStatuses(userId);
     const favoriteJobIds = favoriteJobStatuses.map((status) => (status.id));
     const favoriteJobs = await JobBoardAccessor.getJobByIds(favoriteJobIds);
