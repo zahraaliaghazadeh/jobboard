@@ -120,19 +120,34 @@ export const getFavoriteJobs = async () => {
   const res = await axios.get(path, {
     withCredentials: true
   });
-  return res.data;
+  // return res.data.favoriteJobs.map((j) => (j._doc));
+  return res.data.favoriteJobs;
 }
 
-export const addJobToFavorites = async (jobId) => {
+export const addJobToFavorites = async (jobId, jobStatus) => {
   const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}`
 
   const res = await axios.post(path, {
-    jobId: jobId
+    id: jobId,
+    status: jobStatus
   }, {
     withCredentials: true
   });
   return res;
 }
+
+export const updateJobFavorites = async (jobId, jobStatus) => {
+  const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}/${jobId}`
+
+  const res = await axios.put(path, {
+    id: jobId,
+    status: jobStatus
+  }, {
+    withCredentials: true
+  });
+  return res;
+}
+
 
 export const removeJobFromFavorites = async (jobId) => {
   const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}/${jobId}`

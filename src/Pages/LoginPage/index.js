@@ -3,10 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { login } from "../../service/api";
 import { URL_ROOT } from "../../constants/routes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { parse } from "query-string";
 
 export default function LoginPage(props) {
   const { setGlobalUsername } = props;
+  const location = useLocation();
+  const redirect = parse(location.search).redirect;
 
   const navigate = useNavigate();
 
@@ -18,7 +21,11 @@ export default function LoginPage(props) {
     try {
       await login(username, password)
       setGlobalUsername(username);
-      navigate(URL_ROOT);
+      if (redirect) {
+        window.location = redirect;
+      } else {
+        navigate(URL_ROOT);
+      }
     } catch (err) {
       if (err.response.data.errorCode === 'INVALID_CREDENTIALS') {
         setIsInvalidCredentials(true);

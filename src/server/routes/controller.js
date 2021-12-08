@@ -46,10 +46,10 @@ router.get('/job/id/:id', async function (req, res) {
   try {
     const job = await JobBoardAccessor.getJobById(id)
     if (userId) {
-      const favoriteJobIds = await UserAccessor.getFavoriteJobIds(userId);
+      const favoriteJobStatuses = await UserAccessor.getFavoriteJobStatuses(userId);
+      const favoriteJobIds = favoriteJobStatuses.map((s) => (s.id))
       job._doc.isLoggedIn = true;
       job._doc.isFavorited = favoriteJobIds.includes(id);
-      console.log(job);
       res.status(statusCode.OK);
       res.send(job);
       return;
@@ -77,21 +77,6 @@ router.get('/job/search', async function (req, res) {
 })
 
 
-router.get('/job/favorite', authParser, async function (req, res) {
-  const userId = req.userId;
-  try {
-    const favoriteJobIds = await UserAccessor.getFavoriteJobIds(userId);
-    const favoriteJobs = await JobBoardAccessor.getJobByIds(favoriteJobIds);
-    res.send({
-      favoriteJobIds: favoriteJobIds,
-      favoriteJobs: favoriteJobs
-    })
-  } catch (err) {
-    console.error(err);
-    res.status(statusCode.INTERNAL_SERVER_ERROR);
-    res.send({ err: err })
-  }
-})
 
 router.get('/job', authParser, async function (req, res) {
   const userId = req.userId;
@@ -130,7 +115,7 @@ router.put('/job/:id', authParser, async function (req, res) {
   const job = req.body.job;
   job.timestamp = new Date();
   try {
-    const newJob = await JobBoardAccessor.updateJob(jobId, job);
+    await JobBoardAccessor.updateJob(jobId, job);
     res.send({ success: true })
   } catch (err) {
     console.error(err);
@@ -168,12 +153,55 @@ router.delete('/job/:id',  authParser, async function (req, res) {
   }
 })
 
-router.post('/job/favorite', authParser, async function (req, res) {
-  const body = req.body;
+
+router.get('/job/favorite', authParser, async function (req, res) {
   const userId = req.userId;
-  const jobId = body.jobId;
   try {
-    await UserAccessor.appendFavoriteJobId(userId, jobId);
+    // const favoriteJobIds = await UserAccessor.getFavoriteJobIds(userId);
+    const favoriteJobStatuses = await UserAccessor.getFavoriteJobStatuses(userId);
+    const favoriteJobIds = favoriteJobStatuses.map((status) => (status.id));
+    const favoriteJobs = await JobBoardAccessor.getJobByIds(favoriteJobIds);
+    const jobIdToStatusMap = {}
+    favoriteJobStatuses.forEach((status) => {
+      jobIdToStatusMap[status.id] = status.status;
+    })
+    const favoriteJobsWithStatuses = favoriteJobs.map((job) => ({
+      ...job._doc,
+      status: jobIdToStatusMap[job.id]
+    }))
+    res.send({
+      // favoriteJobIds: favoriteJobIds,
+      // favoriteJobs: favoriteJobs
+      favoriteJobs: favoriteJobsWithStatuses
+    })
+  } catch (err) {
+    console.error(err);
+    res.status(statusCode.INTERNAL_SERVER_ERROR);
+    res.send({ err: err })
+  }
+})
+
+
+router.post('/job/favorite', authParser, async function (req, res) {
+  const jobStatus = req.body;
+  const userId = req.userId;
+  try {
+    // await UserAccessor.appendFavoriteJobId(userId, jobId);
+    await UserAccessor.appendFavoriteJobStatus(userId, jobStatus);
+  } catch (err) {
+    console.error(err);
+    res.status(statusCode.INTERNAL_SERVER_ERROR);
+    res.send({ success: false, err: err })
+  }
+  res.send({ success: true })
+})
+
+router.put('/job/favorite/:id', authParser, async function (req, res) {
+  const userId = req.userId;
+  const jobStatus = req.body;
+  try {
+    // await UserAccessor.appendFavoriteJobId(userId, jobId);
+    await UserAccessor.updateFavoriteJobStatus(userId, jobStatus);
   } catch (err) {
     console.error(err);
     res.status(statusCode.INTERNAL_SERVER_ERROR);
@@ -187,7 +215,7 @@ router.delete('/job/favorite/:id',  authParser, async function (req, res) {
   const userId = req.userId;
   const jobId = req.params.id;
   try {
-    await UserAccessor.removeFavoriteJobId(userId, jobId);
+    await UserAccessor.removeJobStatus(userId, jobId);
   } catch (err) {
     console.error(err);
     res.status(statusCode.INTERNAL_SERVER_ERROR);
@@ -246,7 +274,6 @@ router.post('/register', function (req, res) {
       return UserAccessor.createNewUser(user)
     })
     .then((user) => {
-      console.log(user)
       req.session.username = user.username;
       req.session.userId = user._id;
       res.status(200)

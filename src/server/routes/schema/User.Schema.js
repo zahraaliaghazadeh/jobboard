@@ -11,6 +11,10 @@ exports.UserSchema = new Schema({
         required: true
     },
     jobIds: [],
-    favoriteJobIds: []
+    favoriteJobIds: [],
+    favoriteJobStatuses: [{
+        id: String,
+        status: String
+    }]
 // this explicitly declares what collection we're using
 }, { collection : 'users' });

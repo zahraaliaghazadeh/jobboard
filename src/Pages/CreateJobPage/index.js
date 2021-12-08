@@ -4,6 +4,10 @@ import "./style.css";
 import { createJob } from "../../service/api";
 import { URL_MY_JOBS } from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
+import ImageUploader from 'react-images-upload';
+import { convertFromRaw, convertToRaw } from 'draft-js';
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 export default function CreateJobPage() {
   const navigate = useNavigate();
@@ -13,7 +17,8 @@ export default function CreateJobPage() {
     location: '',
     description: '',
     email: '',
-    url: ''
+    url: '',
+    image: ''
   })
   const [isInvalidJob, setIsInvalidJob] = useState(false);
 
@@ -29,14 +34,26 @@ export default function CreateJobPage() {
     setIsInvalidJob(false)
     try {
       await createJob(newJob)
-      // setGlobalUsername(username);
       navigate(URL_MY_JOBS);
     } catch (err) {
       console.error(err)
-      // if (err.response.data.errorCode === 'INVALID_CREDENTIALS') {
-      //   setIsInvalidCredentials(true);
-      // }
     }
+  }
+
+  const onImageChange = (e, pictures) => {
+    const pic = pictures[0] || '';
+    setNewJob({
+      ...newJob,
+      image: pic
+    })
+  }
+
+  const onDescriptionEditorChange = (editorState) => {
+    const raw = convertToRaw(editorState.getCurrentContent())
+    setNewJob({
+      ...newJob,
+      description: JSON.stringify(raw)
+    })
   }
 
   return (
@@ -59,12 +76,12 @@ export default function CreateJobPage() {
           location: e.target.value
         })
       }}/>
-      <input type="text" name="description" placeholder="description" value={newJob.description} onChange={(e) => {
-        setNewJob({
-          ...newJob,
-          description: e.target.value
-        })
-      }}/>
+      {/*<input type="text" name="description" placeholder="description" value={newJob.description} onChange={(e) => {*/}
+      {/*  setNewJob({*/}
+      {/*    ...newJob,*/}
+      {/*    description: e.target.value*/}
+      {/*  })*/}
+      {/*}}/>*/}
       <input type="text" name="email" placeholder="email" value={newJob.email} onChange={(e) => {
         setNewJob({
           ...newJob,
@@ -77,6 +94,31 @@ export default function CreateJobPage() {
           url: e.target.value
         })
       }}/>
+      <Editor
+        // editorState={editorState}
+        // initialEditorState={}
+        onEditorStateChange={onDescriptionEditorChange}
+      />
+      {
+        newJob.image && (
+          <img alt="Logo" src={newJob.image} style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '8px'
+          }}/>
+        )
+      }
+      <ImageUploader
+        withIcon={false}
+        // withPreview={true}
+        singleImage={true}
+        buttonText='Choose images'
+        onChange={onImageChange}
+        imgExtension={['.jpg', '.jpeg', '.gif', '.png', '.gif']}
+        maxFileSize={80000}
+        label={'Max file size: 80kb'}
+        withLabel={true}
+      />
       <button onClick={onCreateClick}>Create</button>
       {isInvalidJob && <p className="text-danger">Please fill all fields</p>}
     </div>

@@ -26,8 +26,8 @@ mongoDB.on('error', console.error.bind(console, 'Error connecting to MongoDB:'))
 
 const app = express();
 
-app.use(session({secret: 'SUPER_DUPER_TEST'
-  // store: MongoStore.create({ mongoUrl: MONGO_DB_URL }),
+app.use(session({secret: process.env.SUPER_SECRET,
+  store: MongoStore.create({ mongoUrl: MONGO_DB_URL }),
 }));
 // app.use(cors({credentials: true, origin: '*'}));
 app.use(cors({
@@ -58,16 +58,6 @@ app.use('/api/jobboard', jobboard);
 //   res.sendFile(path.join(__dirname, "../../build", "index.html"));
 //   // res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
-
-
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('*', function (req, res) {
-  console.log("received request");
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-  // res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 
 app.listen(PORT, function() {
   console.log(`Starting server: ${PORT}`);

@@ -7,7 +7,6 @@ import { URL_CREATE_JOB, URL_EDIT_JOB_DYNAMIC } from "../../constants/routes";
 
 
 
-
 export default function MyJobsPage() {
 
   const [myJobs, setMyJobs] = useState([]);

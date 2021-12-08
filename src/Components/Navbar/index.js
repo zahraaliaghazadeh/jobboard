@@ -16,6 +16,15 @@ export default function Navbar(props) {
     setShowHamburgerContent(!showHamburgerContent);
   }
 
+  const onLoginClick = () => {
+    const curUrl = window.location.toString();
+    if (curUrl.includes(URL_LOGIN)) {
+      window.location = curUrl
+    } else {
+      window.location = `${URL_LOGIN}?redirect=${encodeURIComponent(curUrl)}`
+    }
+  }
+
   const onLogoutClick = async () => {
     try {
       await logout()
@@ -61,10 +70,10 @@ export default function Navbar(props) {
             {
               !username && (
                 <li>
-                  <button type="button" className="btn btn-warning login-button">
-                    <a className="btn-link" href={URL_LOGIN}>
+                  <button type="button" className="btn btn-warning login-button" onClick={onLoginClick}>
+                    {/*<a className="btn-link" href={URL_LOGIN}>*/}
                       Login
-                    </a>
+                    {/*</a>*/}
                   </button>
                 </li>
               )
