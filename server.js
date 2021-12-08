@@ -28,6 +28,9 @@ const app = express();
 
 app.use(session({secret: "my_secret_ssshhhhh_1234567890",
   store: MongoStore.create({ mongoUrl: MONGO_DB_URL }),
+  proxy: true,
+  resave: true,
+  saveUninitialized: true
 }));
 // app.use(cors({credentials: true, origin: '*'}));
 app.use(cors({
