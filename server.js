@@ -26,7 +26,7 @@ mongoDB.on('error', console.error.bind(console, 'Error connecting to MongoDB:'))
 
 const app = express();
 
-app.use(session({secret: process.env.SUPER_SECRET,
+app.use(session({secret: "my_secret_ssshhhhh_1234567890",
   store: MongoStore.create({ mongoUrl: MONGO_DB_URL }),
 }));
 // app.use(cors({credentials: true, origin: '*'}));
@@ -43,21 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/jobboard', jobboard);
-// Note that it is common practice got backend APIs in Node to start with the api prefix
-// to distinguish them from frontend routes
 
-// app.get('/', (req, res) => {
-//   res.send('NOT BANANA!');
-// });
-
-
-// app.use(express.static(path.join(__dirname, 'build')));
-
-// app.get('*', function (req, res) {
-//   console.log("received request");
-//   res.sendFile(path.join(__dirname, "../../build", "index.html"));
-//   // res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
 
 app.use(express.static(path.join(__dirname, 'build')));
 
