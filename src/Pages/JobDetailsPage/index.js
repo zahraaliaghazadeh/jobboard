@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { addJobToFavorites, getJob, removeJobFromFavorites } from "../../service/api";
 import { Heart, HeartFill } from 'react-bootstrap-icons';
+import draftToHtml from 'draftjs-to-html';
 
 export default function JobDetails() {
     const { id } = useParams();
@@ -13,7 +14,7 @@ export default function JobDetails() {
     const onFavoriteClickHandler = (jobId) => {
       return async () => {
         try {
-          await addJobToFavorites(jobId)
+          await addJobToFavorites(jobId, 'NOT_STARTED')
           setJob({
             ...job,
             isFavorited: true
@@ -63,10 +64,21 @@ export default function JobDetails() {
                 margin: '30px'
               }}>
                 <h1>{job.title}</h1>
+                {
+                  job.image && (
+                    <img alt="logo" src={job.image} style={{
+                      width: '50px',
+                      height: '50px',
+                      borderRadius: '8px'
+                    }}/>
+                  )
+                }
                 <p>{job.companyName}</p>
                 <p>{job.location}</p>
-                <p>{job.description}</p>
+                {/*<p>{draftToHtml(job.description)}</p>*/}
+                <div dangerouslySetInnerHTML={{__html: draftToHtml(JSON.parse(job.description))}} />
                 <p>{job.email}</p>
+
                 {
                   job.isLoggedIn ? (job.isFavorited ?
                     <div onClick={onUnfavoriteClickHandler(job._id)}>

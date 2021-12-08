@@ -25,6 +25,11 @@ async function getUserByName(username) {
   return res.length > 0 ? res[0] : null;
 }
 
+async function getFavoriteJobStatuses(userId) {
+  const user = await UserModel.findById(userId)
+  return user.favoriteJobStatuses;
+}
+
 async function getFavoriteJobIds(userId) {
   const user = await UserModel.findById(userId)
   return user.favoriteJobIds;
@@ -62,6 +67,53 @@ async function appendFavoriteJobId(userId, jobId) {
   });
 }
 
+async function appendFavoriteJobStatus(userId, jobStatus) {
+  const user = await UserModel.findById(userId)
+  const jobStatuses = user.favoriteJobStatuses;
+  const jobStatusExists = jobStatuses.find((el, i, arr) => (el.id === jobStatus.id));
+  if (!jobStatusExists) {
+    jobStatuses.push(jobStatus);
+  }
+  return UserModel.findByIdAndUpdate(userId, {
+    favoriteJobStatuses: jobStatuses
+  });
+}
+
+async function updateFavoriteJobStatus(userId, jobStatus) {
+  const user = await UserModel.findById(userId)
+  const jobStatuses = user.favoriteJobStatuses;
+  const jobStatusIndex = jobStatuses.findIndex((el, i, arr) => (el.id === jobStatus.id));
+  if (jobStatusIndex >= 0) {
+    return UserModel.findByIdAndUpdate(userId, {
+      favoriteJobStatuses: [
+        ...jobStatuses.slice(0, jobStatusIndex),
+        jobStatus,
+        ...jobStatuses.slice(jobStatusIndex + 1, jobStatuses.length)
+      ]
+    });
+  }
+  return UserModel.findByIdAndUpdate(userId, {
+    favoriteJobStatuses: jobStatuses
+  });
+}
+
+async function removeJobStatus(userId, jobId) {
+  const user = await UserModel.findById(userId)
+  const jobStatuses = user.favoriteJobStatuses;
+  const jobStatusIndex = jobStatuses.findIndex((el, i, arr) => (el.id === jobId));
+  if (jobStatusIndex >= 0) {
+    return UserModel.findByIdAndUpdate(userId, {
+      favoriteJobStatuses: [
+        ...jobStatuses.slice(0, jobStatusIndex),
+        ...jobStatuses.slice(jobStatusIndex + 1, jobStatuses.length)
+      ]
+    });
+  }
+  return UserModel.findByIdAndUpdate(userId, {
+    favoriteJobStatuses: jobStatuses
+  });
+}
+
 async function removeFavoriteJobId(userId, jobId) {
   const user = await UserModel.findById(userId)
   const jobIds = new Set(user.favoriteJobIds || []);
@@ -87,9 +139,13 @@ async function removeFavoriteJobId(userId, jobId) {
 module.exports = {
   createNewUser,
   getUserByName,
-  getFavoriteJobIds,
-  appendFavoriteJobId,
-  removeFavoriteJobId,
+  getFavoriteJobStatuses,
+  appendFavoriteJobStatus,
+  updateFavoriteJobStatus,
+  removeJobStatus,
+  // getFavoriteJobIds,
+  // appendFavoriteJobId,
+  // removeFavoriteJobId,
   appendJobId,
   removeJobId,
   getJobIds,

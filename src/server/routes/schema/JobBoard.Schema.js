@@ -27,6 +27,9 @@ exports.JobBoardSchema = new Schema({
     url: {
         type: String,
     },
+    image: {
+        type: String,
+    },
     timestamp: {
         type: Date,
         required: true,

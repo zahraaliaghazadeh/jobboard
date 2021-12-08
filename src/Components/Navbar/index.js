@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { URL_FAVORITES, URL_LOGIN, URL_MY_JOBS, URL_ROOT, URL_SETTINGS, URL_SIGNUP } from "../../constants/routes";
+import { URL_FAVORITES, URL_LOGIN, URL_MY_JOBS, URL_ROOT, URL_SIGNUP } from "../../constants/routes";
 import { logout } from "../../service/api";
 
 export default function Navbar(props) {
@@ -14,6 +14,15 @@ export default function Navbar(props) {
 
   function toggleHamburger() {
     setShowHamburgerContent(!showHamburgerContent);
+  }
+
+  const onLoginClick = () => {
+    const curUrl = window.location.toString();
+    if (curUrl.includes(URL_LOGIN)) {
+      window.location = curUrl
+    } else {
+      window.location = `${URL_LOGIN}?redirect=${encodeURIComponent(curUrl)}`
+    }
   }
 
   const onLogoutClick = async () => {
@@ -61,10 +70,10 @@ export default function Navbar(props) {
             {
               !username && (
                 <li>
-                  <button type="button" className="btn btn-warning login-button">
-                    <a className="btn-link" href={URL_LOGIN}>
+                  <button type="button" className="btn btn-warning login-button" onClick={onLoginClick}>
+                    {/*<a className="btn-link" href={URL_LOGIN}>*/}
                       Login
-                    </a>
+                    {/*</a>*/}
                   </button>
                 </li>
               )
