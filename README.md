@@ -1,6 +1,3 @@
-## Run
-run the command ```npm run devstart``` locally.
-
 # [Job board](https://jobboard2021.herokuapp.com/)
 > A Full Stack job board application built with React, JavaScript, HTML, CSS
 
@@ -27,6 +24,7 @@ This repo contains the free game which is where the user playing on one board an
 ## Enjoy Live
 
 You can enjoy the app at: [Link](https://jobboard2021.herokuapp.com/)
+You can use username ```test``` and password ```test``` for logging in.
 
 ## Screenshots
 Here, .<br>
