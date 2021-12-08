@@ -1,5 +1,5 @@
 const express = require('express');
-const jobboard = require('./routes/controller');
+const jobboard = require('./src/server/routes/controller');
 const cors = require('cors')
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
