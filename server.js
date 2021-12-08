@@ -26,7 +26,7 @@ mongoDB.on('error', console.error.bind(console, 'Error connecting to MongoDB:'))
 
 const app = express();
 
-app.use(session({secret: process.env.SUPER_SECRET,
+app.use(session({secret: "my_secret_ssshhhhh_1234567890",
   store: MongoStore.create({ mongoUrl: MONGO_DB_URL }),
 }));
 // app.use(cors({credentials: true, origin: '*'}));
@@ -56,6 +56,6 @@ app.get('*', function (req, res) {
 });
 
 
-app.listen(process.env.PORT || 8000 , function() {
+app.listen(8000 , function() {
   console.log(`Starting server: ${PORT}`);
 });
