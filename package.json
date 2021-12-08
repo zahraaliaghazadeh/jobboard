@@ -34,12 +34,11 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-select": "^5.2.1",
-    "web-vitals": "^1.0.1",
-    "wysiwyg": "^2.0.0"
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "server": "nodemon src/server/server.js",
-    "start": "react-scripts start src/client",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
