@@ -1,4 +1,4 @@
-const URL_PREFIX = 'http://localhost:8000/api/jobboard';
+// const URL_PREFIX = 'http://localhost:8000/api/jobboard';
 
 const PATH_USERNAME = '/username';
 const PATH_LOGIN = '/login';
@@ -15,7 +15,8 @@ const axios = require('axios').default;
 
 
 export const login = async (username, password) => {
-  const path = `${URL_PREFIX}${PATH_LOGIN}`
+  // const path = `${URL_PREFIX}${PATH_LOGIN}`
+  const path = `${PATH_LOGIN}`
 
   const res = await axios.post(path, {
     username: username,
@@ -27,7 +28,8 @@ export const login = async (username, password) => {
 }
 
 export const logout = async () => {
-  const path = `${URL_PREFIX}${PATH_LOGOUT}`
+  // const path = `${URL_PREFIX}${PATH_LOGOUT}`
+  const path = `${PATH_LOGOUT}`
 
   const res = await axios.get(path, {
     withCredentials: true
@@ -36,7 +38,8 @@ export const logout = async () => {
 }
 
 export const register = async (username, password) => {
-  const path = `${URL_PREFIX}${PATH_REGISTER}`
+  // const path = `${URL_PREFIX}${PATH_REGISTER}`
+  const path = `${PATH_REGISTER}`
 
   const res = await axios.post(path, {
     username: username,
@@ -48,7 +51,8 @@ export const register = async (username, password) => {
 }
 
 export const getUsername = async () => {
-  const path = `${URL_PREFIX}${PATH_USERNAME}`
+  // const path = `${URL_PREFIX}${PATH_USERNAME}`
+  const path = `${PATH_USERNAME}`
 
   const res = await axios.get(path, {
     withCredentials: true
@@ -57,7 +61,8 @@ export const getUsername = async () => {
 }
 
 export const getJob = async (id) => {
-  const path = `${URL_PREFIX}${PATH_JOB_ID}/${id}`
+  // const path = `${URL_PREFIX}${PATH_JOB_ID}/${id}`
+  const path = `${PATH_JOB_ID}/${id}`
 
   const res = await axios.get(path, {
     withCredentials: true
@@ -66,7 +71,9 @@ export const getJob = async (id) => {
 }
 
 export const queryJobs = async (searchQuery) => {
-  const path = `${URL_PREFIX}${PATH_JOB_SEARCH}?${QUERY_PARAM_SEARCH}=${encodeURIComponent(searchQuery)}`
+  // const path = `${URL_PREFIX}${PATH_JOB_SEARCH}?${QUERY_PARAM_SEARCH}=${encodeURIComponent(searchQuery)}`
+  const path = `${PATH_JOB_SEARCH}?${QUERY_PARAM_SEARCH}=${encodeURIComponent(searchQuery)}`
+
 
   const res = await axios.get(path, {
     withCredentials: true
@@ -75,7 +82,8 @@ export const queryJobs = async (searchQuery) => {
 }
 
 export const createJob = async (job) => {
-  const path = `${URL_PREFIX}${PATH_JOB}`
+  // const path = `${URL_PREFIX}${PATH_JOB}`
+  const path = `${PATH_JOB}`
 
   const res = await axios.post(path, {
     job: job
@@ -86,7 +94,8 @@ export const createJob = async (job) => {
 }
 
 export const updateJob = async (jobId, job) => {
-  const path = `${URL_PREFIX}${PATH_JOB}/${jobId}`
+  // const path = `${URL_PREFIX}${PATH_JOB}/${jobId}`
+  const path = `${PATH_JOB}/${jobId}`
 
   const res = await axios.put(path, {
     job: job
@@ -97,7 +106,8 @@ export const updateJob = async (jobId, job) => {
 }
 
 export const deleteJob = async (jobId) => {
-  const path = `${URL_PREFIX}${PATH_JOB}/${jobId}`
+  // const path = `${URL_PREFIX}${PATH_JOB}/${jobId}`
+  const path = `${PATH_JOB}/${jobId}`
 
   const res = await axios.delete(path, {
     withCredentials: true
@@ -106,7 +116,8 @@ export const deleteJob = async (jobId) => {
 }
 
 export const getJobs = async () => {
-  const path = `${URL_PREFIX}${PATH_JOB}`
+  // const path = `${URL_PREFIX}${PATH_JOB}`
+  const path = `${PATH_JOB}`
 
   const res = await axios.get(path, {
     withCredentials: true
@@ -115,7 +126,8 @@ export const getJobs = async () => {
 }
 
 export const getFavoriteJobs = async () => {
-  const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}`
+  // const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}`
+  const path = `${PATH_JOB_FAVORITES}`
 
   const res = await axios.get(path, {
     withCredentials: true
@@ -125,7 +137,8 @@ export const getFavoriteJobs = async () => {
 }
 
 export const addJobToFavorites = async (jobId, jobStatus) => {
-  const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}`
+  // const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}`
+  const path = `${PATH_JOB_FAVORITES}`
 
   const res = await axios.post(path, {
     id: jobId,
@@ -137,7 +150,8 @@ export const addJobToFavorites = async (jobId, jobStatus) => {
 }
 
 export const updateJobFavorites = async (jobId, jobStatus) => {
-  const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}/${jobId}`
+  // const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}/${jobId}`
+  const path = `${PATH_JOB_FAVORITES}/${jobId}`
 
   const res = await axios.put(path, {
     id: jobId,
@@ -150,7 +164,8 @@ export const updateJobFavorites = async (jobId, jobStatus) => {
 
 
 export const removeJobFromFavorites = async (jobId) => {
-  const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}/${jobId}`
+  // const path = `${URL_PREFIX}${PATH_JOB_FAVORITES}/${jobId}`
+  const path = `${PATH_JOB_FAVORITES}/${jobId}`
 
   const res = await axios.delete(path, {
     withCredentials: true
