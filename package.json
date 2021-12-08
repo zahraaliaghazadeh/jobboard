@@ -39,6 +39,7 @@
   "scripts": {
     "server": "nodemon src/server/server.js",
     "start": "react-scripts start",
+    "devstart": "concurrently \"nodemon ./src/server/server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
