@@ -26,7 +26,7 @@ mongoDB.on('error', console.error.bind(console, 'Error connecting to MongoDB:'))
 
 const app = express();
 
-app.use(session({secret: "my_secret_ssshhhhh_1234567890",
+app.use(session({secret: process.env.SUPER_SECRET,
   store: MongoStore.create({ mongoUrl: MONGO_DB_URL }),
   proxy: true,
   resave: true,
