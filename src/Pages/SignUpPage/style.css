@@ -1,0 +1,22 @@
+.signup-form{
+  padding-top: 20px;
+}
+
+.signup-username{
+  margin-top: 10px;
+  border-radius: 3px;
+  border-color: #31d2f2;
+}
+
+.signup-password{
+  margin-top: 10px;
+  border-radius: 3px;
+  border-color: #31d2f2;
+}
+
+.signup-button{
+  margin-top: 10px;
+  border-radius: 3px;
+
+
+}
