@@ -4,7 +4,7 @@ const JobCard = (props) => {
   const { job } = props;
   return (
     <div style={{
-      color: 'black',
+      color: "#2b2d42",
       margin: '10px 20px',
       border: 'solid',
       borderRadius: '10px',
