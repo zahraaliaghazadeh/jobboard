@@ -48,43 +48,13 @@
 
 }
 
-/*#username{*/
-/*    color: #e36414 ;*/
-/*}*/
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-/*body {*/
-/*    background-color: #111;*/
-/*}*/
-
-.title {
-    font-family: "Montserrat";
-    text-align: center;
-    color: #FFF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /*height: 100vh;*/
-    letter-spacing: 1px;
+#username{
+    color: #e36414 ;
 }
 
-.username {
-    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
-    /*background-color: #0a58ca;*/
-    background-size: cover;
-    color: transparent;
-    /*-moz-background-clip: text;*/
-    -webkit-background-clip: text;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: .75;
-    margin: 10px 0;
+.nav-item{
+    cursor: default;
 }
 
-.username:hover{
-    color: #e36414;
-}
 
 
