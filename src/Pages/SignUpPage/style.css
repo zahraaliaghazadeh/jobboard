@@ -1,22 +1,60 @@
 .signup-form{
   padding-top: 20px;
+
 }
 
 .signup-username{
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   border-radius: 3px;
   border-color: #31d2f2;
 }
 
 .signup-password{
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   border-radius: 3px;
   border-color: #31d2f2;
 }
 
 .signup-button{
-  margin-top: 10px;
+  margin: 10px !important;
   border-radius: 3px;
+}
 
+
+.signup-title{
+  color: #3c096c;
+  margin: 5px;
+  font-size: 26px;
 
 }
+
+/*.main-body{*/
+  /*background-image: url("../../assets/images/money1.jpg");*/
+  /*background-repeat: no-repeat;*/
+  /*width: 100vw;*/
+  /*height:100vh;*/
+  /*background-size: cover;*/
+
+  /*----------------------*/
+  /*position: relative;*/
+  /*height: 100vh;*/
+  /*width: 100%;*/
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*background-image: url("../../assets/images/money1.jpg");*/
+  /*background-size: cover;*/
+
+/*}*/
+
+
+/*.main-body::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  top: 0px;*/
+/*  right: 0px;*/
+/*  bottom: 0px;*/
+/*  left: 0px;*/
+/*  background-color: rgba(0,0,0,0.25);*/
+/*}*/
+

@@ -78,7 +78,8 @@ export default function Navbar(props) {
               {/*Home*/}
               <li className="nav-item active">
                 <a className="nav-link sr-only" href="/">
-                  <span><HouseDoor/>  Home</span>
+                  {/*<span><HouseDoor/>  Home</span>*/}
+                  <HouseDoor/>  Home
                 </a>
               </li>
               {
@@ -86,21 +87,19 @@ export default function Navbar(props) {
                       <li className="nav-item active" onClick={onLoginClick}>
                         <a className="nav-link">
                           {/*<span><FileEarmarkLock/>  Login</span>*/}
-                          <FileEarmarkLock/>  Login
+                          <FileEarmarkLock/> Login
                         </a>
-                        {/*</button>*/}
+
                       </li>
                   )
               }
               {
                   !username && (
                       <li className="nav-item active">
-
-                        <a className="nav-link" href={URL_SIGNUP}>
+                        <a className="nav-link" href={URL_SIGNUP} >
                           {/*<span><Key/>  Sign Up</span>*/}
-                          <Key/>  Sign Up
+                          <Key/> Sign Up
                         </a>
-                        {/*</button>*/}
                       </li>
                   )
               }
@@ -111,18 +110,15 @@ export default function Navbar(props) {
                     <a className="nav-link" href={URL_FAVORITES}>
                       <span><Heart/>  Favorites</span>
                     </a>
-                    {/*</button>*/}
                   </li>
               }
               {
                   username &&
                   <li className="nav-item active">
-                    {/*<button onClick={onLogoutClick} type="button" className="btn btn-warning signup-button">*/}
                     <a className="nav-link" onClick={onLogoutClick}>
                       {/*<span><DoorClosed/>  Logout</span>*/}
-                      <DoorClosed/>  Logout
+                      <DoorClosed/> Logout
                     </a>
-                    {/*</button>*/}
                   </li>
               }
 
@@ -133,7 +129,6 @@ export default function Navbar(props) {
                       {/*<span><PersonCheck/> {username}</span>*/}
                       <PersonCheck/> {username}
                     </a>
-
                   </li>
               }
             </ul>
