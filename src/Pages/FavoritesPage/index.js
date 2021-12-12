@@ -50,7 +50,7 @@ export default function FavoritesPage() {
 
 
   return (
-      <div className={"container"}>
+      <div className={"container favorited-page"}>
         <div className={"row"}>
           <div className={"col col-md-auto-12"}>
             {
