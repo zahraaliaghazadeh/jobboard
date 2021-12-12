@@ -28,37 +28,44 @@ export default function SignUpPage() {
   }
 
   return (
-      <div className={"container"}>
+      <div className={"main-body"}>
+      <div className={"container signup-form"}>
         <div className={"row"}>
-          <div className={"col col-md-auto"}>
-            <input className={"signup-username"} type="text" name="username" placeholder="username"
-                   value={username} onChange={(e) => {
-              setUsername(e.target.value)
-            }}/>
+          <div className={"col col-md-auto-4"}>
+            <div className={"signup-title"}> Sign Up</div>
+            <div className={"form-group"}>
+
+              <input className={"signup-username form-control"} type="text"
+                     name="username" placeholder="username"
+                     value={username} onChange={(e) => {
+                setUsername(e.target.value)
+              }}/>
+
+
+              <small id="passHelp" className="form-text text-muted"> Password
+                doesn't have any restrictions currently.</small>
+              <input className={"signup-password form-control"} id={"passInput"}
+                     type="password" name="password" placeholder="password"
+                     value={password} onChange={(e) => {
+                setPassword(e.target.value)
+              }}/>
+
+              <button className={"signup-button btn btn-warning"}
+                      onClick={onSignUpClick}>Sign Up
+              </button>
+              {errorMessages.length > 0 && (
+                  <li>
+                    {
+                      errorMessages.map((message) => (
+                          <p className="text-danger">{message}</p>
+                      ))
+                    }
+                  </li>
+              )}
+            </div>
           </div>
         </div>
-        <div className={"row"}>
-          <div className={"col col-md-auto"}>
-            <input className={"signup-password"} type="password" name="password" placeholder="password"
-                   value={password} onChange={(e) => {
-              setPassword(e.target.value)
-            }}/>
-          </div>
-        </div>
-        <div className={"row"}>
-          <div className={"col col-md-auto"}>
-            <button className={"signup-button btn btn-warning"} onClick={onSignUpClick}>Sign Up</button>
-            {errorMessages.length > 0 && (
-                <li>
-                  {
-                    errorMessages.map((message) => (
-                        <p className="text-danger">{message}</p>
-                    ))
-                  }
-                </li>
-            )}
-          </div>
-        </div>
+      </div>
       </div>
 
   )

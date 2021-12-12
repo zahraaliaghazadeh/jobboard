@@ -36,34 +36,41 @@ export default function LoginPage(props) {
   return (
       <div className={"container login-form"}>
         <div className={"row"}>
-          <div className={"col col-md-auto"}>
-            {/*<div>If you have not registered yet, try signing up first</div>*/}
-            <input className="login-username" type="text" name="username"
-                   placeholder="username"
-                   value={username} onChange={(e) => {
-              setUsername(e.target.value)
-            }}/>
-          </div>
-        </div>
-        <div className={"row"}>
-          <div className={"col col-md-auto"}>
-            {/*<div>Password doesn't have any restrictions currently.</div>*/}
-            <input className="login-password" type="password" name="password"
-                   placeholder="password"
-                   value={password} onChange={(e) => {
-              setPassword(e.target.value)
-            }}/>
-          </div>
-        </div>
-        <div className={"row"}>
-          <div className={"col col-md-auto"}>
+          <div className={"col col-md-auto-4"}>
+            <div className={"login-title"}>Login</div>
+            <div className={"login-instruction"}>If you have not registered a user and password yet, please try
+              signing up first.
+            </div>
+            <div className={"form-group"}>
+              <input className="login-username form-control" type="text"
+                     name="username"
+                     placeholder="username"
+                     value={username} onChange={(e) => {
+                setUsername(e.target.value)
+              }}/>
+            </div>
+            <div className={"form-group"}>
+              {/*<small id="passHelp" className="form-text text-muted"> Password*/}
+              {/*  doesn't have any restrictions currently.</small>*/}
+
+              <input className="login-password form-control"
+                     type="password"
+                     // id={"PassInput"}
+                     name="password"
+                     placeholder="password"
+                     value={password} onChange={(e) => {
+                setPassword(e.target.value)
+              }}/>
+            </div>
+
             <button className="login-button btn btn-warning"
-                    onClick={onLoginClick}>Login
+                    onClick={onLoginClick} type={"submit"}>Login
             </button>
             {isInvalidCredentials && <p className="text-danger">Invalid
               username
               or password</p>}
           </div>
+
         </div>
 
       </div>

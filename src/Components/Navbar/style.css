@@ -13,15 +13,9 @@
 
 .nav-item{
     margin-left: 20px;
+    /*cursor: default;*/
 }
 
-/*.login-button{*/
-/*flex: right;*/
-/*}*/
-
-/*.signup-button{*/
-/*    flex: right;*/
-/*}*/
 
 .nav-item-link {
     text-decoration: none;
@@ -30,12 +24,11 @@
 
 .nav-item {
     padding: 20px 5px;
-
 }
 
-.nav-item.active {
-
-}
+/*.nav-item.active {*/
+/*    cursor: default;*/
+/*}*/
 
 .navbar-brand{
     font-family: 'Indie Flower', cursive;
@@ -45,15 +38,10 @@
     font-weight: bold;
     /*padding: 6px;*/
     color: #e36414;
-
 }
 
 #username{
     color: #e36414 ;
-}
-
-.nav-item{
-    cursor: default;
 }
 
 

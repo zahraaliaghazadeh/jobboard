@@ -63,7 +63,7 @@ export default function CreateJobPage() {
         <div className={"row"}>
           <div className={"col col-md-auto-12"}>
             <form>
-              <div className="form-group">
+              <div className={"form-group"}>
                 <input className="form-control" type="text" name="title"
                        placeholder="title"
                        value={newJob.title} onChange={(e) => {
@@ -73,6 +73,7 @@ export default function CreateJobPage() {
                   })
                 }}/>
               </div>
+
               <div className={"form-group"}>
                 <input className="form-control" type="text" name="companyName" placeholder="Company Name"
                        value={newJob.companyName} onChange={(e) => {
@@ -83,7 +84,6 @@ export default function CreateJobPage() {
                 }}/>
               </div>
               <div className={"form-group"}>
-
                 <input className="form-control" type="text" name="location" placeholder="location"
                        value={newJob.location} onChange={(e) => {
                   setNewJob({
