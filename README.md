@@ -108,11 +108,13 @@ To-do list:
 * Better Design
 
 ## Resources
-Some of the really useful websites especially for design:
+Some useful websites especially for design:
 * Choosing colors [coloors.co](https://coolors.co/)
 * Creating favicon for your react app to replace the generic react logo [https://realfavicongenerator.net/](https://realfavicongenerator.net/)
 * Great images resource free for download [https://unsplash.com/](https://unsplash.com/)
 * Resource for icons with ability to change colors [https://game-icons.net/](https://game-icons.net/)
+* Resource for gradient in css, [gradient.io](https://cssgradient.io/)
+
 
 ## Status
 Project is: _finished_

@@ -1,3 +1,10 @@
 .create-job-posting{
   margin: 20px;
 }
+
+
+.form-control{
+  margin-top: 10px;
+  border-radius: 3px;
+  border-color: #31d2f2;
+}
