@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { getJobs } from "../../service/api";
+import {getJobs} from "../../service/api";
 import JobCard from "../../Components/JobCard";
-import { URL_CREATE_JOB, URL_EDIT_JOB_DYNAMIC } from "../../constants/routes";
-
-
+import {URL_CREATE_JOB, URL_EDIT_JOB_DYNAMIC} from "../../constants/routes";
 
 export default function MyJobsPage() {
 
@@ -29,27 +27,32 @@ export default function MyJobsPage() {
   console.log(myJobs);
 
   return (
-    <div>
-      <button onClick={onAddNewJobClick}>
-        Add new job +
-      </button>
-      {
-        myJobs && myJobs.length > 0 && (
-          <div>
-            <h2>My Jobs:</h2>
+      <div className={"container"}>
+        <div className={"row"}>
+          <div className={"col col-md-12"}>
+            <button className={"add-new-job-button btn btn-warning"} onClick={onAddNewJobClick}>
+              Add new job +
+            </button>
             {
-              myJobs.map((job, index) => (
-                <a key={index} href={URL_EDIT_JOB_DYNAMIC(job._id)} style={{
-                  textDecoration: 'none'
-                }}>
-                  <JobCard job={job} />
-                </a>
-              ))
+                myJobs && myJobs.length > 0 && (
+                    <div>
+                      <h2>My Jobs:</h2>
+                      {
+                        myJobs.map((job, index) => (
+                            <a key={index} href={URL_EDIT_JOB_DYNAMIC(job._id)}
+                               style={{
+                                 textDecoration: 'none'
+                               }}>
+                              <JobCard job={job}/>
+                            </a>
+                        ))
+                      }
+                    </div>
+                )
             }
           </div>
-        )
-      }
-    </div>
+        </div>
+      </div>
 
   )
 }
