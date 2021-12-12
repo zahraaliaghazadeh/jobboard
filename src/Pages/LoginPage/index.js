@@ -57,7 +57,7 @@ export default function LoginPage(props) {
         </div>
         <div className={"row"}>
           <div className={"col col-md-auto"}>
-            <button className="login-button btn-warning"
+            <button className="login-button btn btn-warning"
                     onClick={onLoginClick}>Login
             </button>
             {isInvalidCredentials && <p className="text-danger">Invalid
