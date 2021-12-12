@@ -78,6 +78,7 @@ export default function JobDetails() {
                 {/*<p>{draftToHtml(job.description)}</p>*/}
                 <div dangerouslySetInnerHTML={{__html: draftToHtml(JSON.parse(job.description))}} />
                 <p>{job.email}</p>
+                <div>{job.timestamp}</div>
 
                 {
                   job.isLoggedIn ? (job.isFavorited ?
