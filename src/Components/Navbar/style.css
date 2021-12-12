@@ -71,6 +71,7 @@
 
 .username {
     background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    /*background-color: #0a58ca;*/
     background-size: cover;
     color: transparent;
     /*-moz-background-clip: text;*/

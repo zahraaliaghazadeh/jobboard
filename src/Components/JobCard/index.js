@@ -14,7 +14,7 @@ const JobCard = (props) => {
       padding: '10px',
       background: `linear-gradient(to bottom,  ${color1} 0%,${color2} 100%)`
     }}>
-      <h1>{job.title}</h1>
+      <h3>{job.title}</h3>
       <p>{job.companyName}</p>
       <p>{job.location}</p>
       <p>{job.email}</p>

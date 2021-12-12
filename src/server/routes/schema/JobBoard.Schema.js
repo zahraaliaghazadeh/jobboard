@@ -34,6 +34,13 @@ exports.JobBoardSchema = new Schema({
         type: Date,
         required: true,
         default: Date.now
+        // format: "%Y-%m-%d",
+        // date: "$date"
+        // $dateToString: {
+        // // date: "",
+        // format: "%Y-%m-%d",
+        // timezone: "America/New_York",
+        //     }
     }
 // this explicitly declares what collection we're using
 }, { collection : 'jobs' });
