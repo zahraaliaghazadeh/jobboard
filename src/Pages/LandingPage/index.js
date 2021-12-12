@@ -31,7 +31,7 @@ export default function LandingPage() {
       <div className="container">
         <div className="row margin-top-xl">
           <div className="col-md-auto welcome-container">
-            <h3 className="welcome-message">Welcome!</h3>
+            <h3 className="welcome-message">Welcome! Good Luck on your Job search.</h3>
           </div>
         </div>
         <div className="row margin-top-s">
