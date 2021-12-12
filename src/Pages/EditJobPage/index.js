@@ -86,55 +86,69 @@ export default function EditJobPage() {
   }
 
   return (
-      <div className={"container"}>
-        <div className={"row"}>
-          <div className={"col col-md-auto-12"}>
-
-            {
-                job && (
-                    <div>
-                      <input type="text" name="title" placeholder="title"
-                             value={job.title} onChange={(e) => {
-                        setJob({
-                          ...job,
-                          title: e.target.value
-                        })
-                      }}/>
-                      <input type="text" name="companyName"
-                             placeholder="Company Name" value={job.companyName}
-                             onChange={(e) => {
-                               setJob({
-                                 ...job,
-                                 companyName: e.target.value
-                               })
-                             }}/>
-                      <input type="text" name="location" placeholder="location"
-                             value={job.location} onChange={(e) => {
-                        setJob({
-                          ...job,
-                          location: e.target.value
-                        })
-                      }}/>
-                      {/*<input type="text" name="description" placeholder="description" value={job.description} onChange={(e) => {*/}
-                      {/*  setJob({*/}
-                      {/*    ...job,*/}
-                      {/*    description: e.target.value*/}
-                      {/*  })*/}
-                      {/*}}/>*/}
-                      <input type="text" name="email" placeholder="email"
-                             value={job.email} onChange={(e) => {
-                        setJob({
-                          ...job,
-                          email: e.target.value
-                        })
-                      }}/>
-                      <input type="text" name="url" placeholder="url"
-                             value={job.url} onChange={(e) => {
-                        setJob({
-                          ...job,
-                          url: e.target.value
-                        })
-                      }}/>
+      <div>
+        {
+            job && (
+                <div className={"container edit-job-posting"}>
+                  <div className={"row"}>
+                    <div className={"col col-md-auto-12"}>
+                      <form>
+                        <div className={"form-group"}>
+                          <input className={"form-control"} type="text" name="title"
+                                 placeholder="title"
+                                 value={job.title} onChange={(e) => {
+                            setJob({
+                              ...job,
+                              title: e.target.value
+                            })
+                          }}/>
+                          <input className={"form-control"} type="text"
+                                 name="companyName"
+                                 placeholder="Company Name"
+                                 value={job.companyName}
+                                 onChange={(e) => {
+                                   setJob({
+                                     ...job,
+                                     companyName: e.target.value
+                                   })
+                                 }}/>
+                          <input className={"form-control"} type="text"
+                                 name="location"
+                                 placeholder="location"
+                                 value={job.location} onChange={(e) => {
+                            setJob({
+                              ...job,
+                              location: e.target.value
+                            })
+                          }}/>
+                          {/*<input type="text" name="description" placeholder="description" value={job.description} onChange={(e) => {*/}
+                          {/*  setJob({*/}
+                          {/*    ...job,*/}
+                          {/*    description: e.target.value*/}
+                          {/*  })*/}
+                          {/*}}/>*/}
+                          <input className={"form-control"} type="text" name="email"
+                                 placeholder="email"
+                                 value={job.email} onChange={(e) => {
+                            setJob({
+                              ...job,
+                              email: e.target.value
+                            })
+                          }}/>
+                          <input className={"form-control"} type="text" name="url"
+                                 placeholder="url"
+                                 value={job.url} onChange={(e) => {
+                            setJob({
+                              ...job,
+                              url: e.target.value
+                            })
+                          }}/>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div className={"row"}>
+                    <div className={"col col-md-auto-12"}>
                       <Editor
                           editorState={editorState}
                           // editorState={() => (job.description && convertFromRaw(job.description))}
@@ -154,21 +168,27 @@ export default function EditJobPage() {
                           singleImage={true}
                           buttonText='Choose images'
                           onChange={onImageChange}
-                          imgExtension={['.jpg', '.jpeg', '.gif', '.png', '.gif']}
+                          imgExtension={['.jpg', '.jpeg', '.gif', '.png',
+                            '.gif']}
                           maxFileSize={80000}
                           label={'Max file size: 80kb'}
                           withLabel={true}
                       />
-                      <button onClick={onUpdateClick}>Update</button>
-                      <button onClick={onDeleteClick}>Delete</button>
-                      {isInvalidJob && <p className="text-danger">Please correct all
+                      <button className={"btn btn-warning"}
+                              onClick={onUpdateClick}>Update
+                      </button>
+                      <button className={"btn btn-warning"}
+                              onClick={onDeleteClick}>Delete
+                      </button>
+                      {isInvalidJob && <p className="text-danger">Please correct
+                        all
                         fields</p>}
                     </div>
-                )
-            }
-          </div>
-        </div>
+                  </div>
 
+                </div>
+            )
+        }
       </div>
   )
 }
