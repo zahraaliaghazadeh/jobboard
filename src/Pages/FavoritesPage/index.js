@@ -48,6 +48,7 @@ export default function FavoritesPage() {
     }
   }
 
+
   return (
       <div className={"container"}>
         <div className={"row"}>
