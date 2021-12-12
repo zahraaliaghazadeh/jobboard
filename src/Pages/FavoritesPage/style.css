@@ -1,4 +1,10 @@
 .favorite-jobs-main-title{
   margin: 10px;
-  color: #f9844a;
+  color: #3c096c;
+}
+
+.no-favorites-message{
+  margin: 20px;
+  color: #3c096c;
+  font-size: 28px;
 }

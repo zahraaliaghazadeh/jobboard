@@ -55,7 +55,7 @@ export default function FavoritesPage() {
             {
                 favoriteJobs && favoriteJobs.length === 0 && (
                     <div>
-                      <h2>You don't have any favorite jobs yet. Search for jobs <a
+                      <h2 className={"no-favorites-message"}>You don't have any favorite jobs yet. Search for jobs <a
                           href={URL_ROOT}>here</a></h2>
                     </div>
                 )
