@@ -62,7 +62,8 @@ export default function Navbar(props) {
 
 
 
-          <ul className="nav navbar-nav navbar-right pull-right">
+          <ul className="nav navbar-nav">
+            {/*Home*/}
             <li className="nav-item active">
               <a className="nav-link sr-only" href="/">
                 Home
@@ -101,27 +102,29 @@ export default function Navbar(props) {
               </li>
             }
             {
-              username &&
-              <li className="nav-item active">
-                {/*<button type="button" className="btn btn-warning signup-button">*/}
-                  <a className="nav-link" href={URL_MY_JOBS}>
-                    {username}
+                username &&
+                <li className="nav-item active">
+                  {/*<button onClick={onLogoutClick} type="button" className="btn btn-warning signup-button">*/}
+                  <a className="nav-link" onClick={onLogoutClick}>
+                    Logout
                   </a>
-                {/*</button>*/}
-              </li>
-            }
-            {
-              username &&
-              <li className="nav-item active">
-                {/*<button onClick={onLogoutClick} type="button" className="btn btn-warning signup-button">*/}
-                <a className="nav-link" onClick={onLogoutClick}>
-                  Logout
-                </a>
-                {/*</button>*/}
-              </li>
+                  {/*</button>*/}
+                </li>
             }
 
           </ul>
+
+          {
+              username &&
+              <li className="nav-item active title">
+                {/*<button type="button" className="btn btn-warning signup-button">*/}
+                <a className="nav-link username" href={URL_MY_JOBS}>
+                  {username}
+                </a>
+                {/*</button>*/}
+              </li>
+          }
+
         </div>
       </nav>
     </div>

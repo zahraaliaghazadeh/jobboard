@@ -27,7 +27,7 @@ export default function MyJobsPage() {
   console.log(myJobs);
 
   return (
-      <div className={"container"}>
+      <div className={"container my-jobs-page"}>
         <div className={"row"}>
           <div className={"col col-md-12"}>
             <button className={"add-new-job-button btn btn-warning"} onClick={onAddNewJobClick}>
