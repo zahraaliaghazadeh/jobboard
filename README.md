@@ -27,12 +27,11 @@ You can enjoy the app at: [Link](https://jobboard2021.herokuapp.com/)
 You can use username ```test``` and password ```test``` for logging in.
 
 ## Screenshots
-Here, .<br>
 
-[//]: # (![Gif]&#40;./src/assets/images/gif1.gif&#41; <br>)
-Below <br>
 
-[//]: # (![Gif]&#40;./src/assets/images/gif2.gif&#41; <br>)
+![Gif](./src/assets/images/gif1.gif) <br>
+
+
 
 ## Technologies
 * HTML5
