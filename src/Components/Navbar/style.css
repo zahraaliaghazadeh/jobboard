@@ -33,3 +33,9 @@ flex: right;
 .nav-item.active {
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+.navbar-brand{
+    font-family: 'Indie Flower', cursive;
+    vertical-align:middle;
+    margin-top: 5px;
+}
