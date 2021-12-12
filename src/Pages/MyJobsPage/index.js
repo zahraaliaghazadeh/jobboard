@@ -36,7 +36,7 @@ export default function MyJobsPage() {
             {
                 myJobs && myJobs.length > 0 && (
                     <div>
-                      <h2>My Jobs:</h2>
+                      <h2 className={"my-jobs-title"}>My Jobs:</h2>
                       {
                         myJobs.map((job, index) => (
                             <a key={index} href={URL_EDIT_JOB_DYNAMIC(job._id)}
