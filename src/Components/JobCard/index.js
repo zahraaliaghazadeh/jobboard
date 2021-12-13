@@ -3,7 +3,8 @@ import React from "react";
 const JobCard = (props) => {
   const { job } = props;
   const color1 = "#ffd6a5";
-  const color2 = "#e0e1dd";
+  // const color2 = "#e0e1dd";
+  const color2 = "white";
 
   return (
     <div style={{
