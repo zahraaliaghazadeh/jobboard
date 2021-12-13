@@ -75,7 +75,8 @@ export default function CreateJobPage() {
               </div>
 
               <div className={"form-group"}>
-                <input className="form-control" type="text" name="companyName" placeholder="Company Name"
+                <input className="form-control" type="text" name="companyName"
+                       placeholder="Company Name"
                        value={newJob.companyName} onChange={(e) => {
                   setNewJob({
                     ...newJob,
@@ -84,7 +85,8 @@ export default function CreateJobPage() {
                 }}/>
               </div>
               <div className={"form-group"}>
-                <input className="form-control" type="text" name="location" placeholder="location"
+                <input className="form-control" type="text" name="location"
+                       placeholder="location"
                        value={newJob.location} onChange={(e) => {
                   setNewJob({
                     ...newJob,
@@ -94,7 +96,8 @@ export default function CreateJobPage() {
 
               </div>
               <div className={"form-group"}>
-                <input className="form-control" type="text" name="email" placeholder="email"
+                <input className="form-control" type="text" name="email"
+                       placeholder="email"
                        value={newJob.email} onChange={(e) => {
                   setNewJob({
                     ...newJob,
@@ -103,7 +106,8 @@ export default function CreateJobPage() {
                 }}/>
               </div>
               <div className={"form-group"}>
-                <input className="form-control" type="text" name="url" placeholder="url"
+                <input className="form-control" type="text" name="url"
+                       placeholder="url"
                        value={newJob.url}
                        onChange={(e) => {
                          setNewJob({
@@ -115,43 +119,43 @@ export default function CreateJobPage() {
             </form>
             <div className={"row"}>
               <div className={"col col-md-auto-12"}>
-
-
-                <Editor
-                    // editorState={editorState}
-                    // initialEditorState={}
-                    onEditorStateChange={onDescriptionEditorChange}
-                />
-                {
-                    newJob.image && (
-                        <img alt="Logo" src={newJob.image} style={{
-                          width: '50px',
-                          height: '50px',
-                          borderRadius: '8px'
-                        }}/>
-                    )
-                }
-                <ImageUploader
-                    withIcon={false}
-                    // withPreview={true}
-                    singleImage={true}
-                    buttonText='Choose images'
-                    onChange={onImageChange}
-                    imgExtension={['.jpg', '.jpeg', '.gif', '.png', '.gif']}
-                    maxFileSize={80000}
-                    label={'Max file size: 80kb'}
-                    withLabel={true}
-                />
-              </div>
-              <div className={"row"}>
-                <div className={"col col-md-auto-12"}>
-                  <button className={"btn btn-warning"} onClick={onCreateClick}>Create</button>
-                  {isInvalidJob && <p className="text-danger">Please fill all
-                    fields</p>}
+                <div className={"description"}>
+                  <Editor
+                      // editorState={editorState}
+                      // initialEditorState={}
+                      onEditorStateChange={onDescriptionEditorChange}
+                  />
+                  {
+                      newJob.image && (
+                          <img alt="Logo" src={newJob.image} style={{
+                            width: '50px',
+                            height: '50px',
+                            borderRadius: '8px'
+                          }}/>
+                      )
+                  }
+                  <ImageUploader
+                      withIcon={false}
+                      // withPreview={true}
+                      singleImage={true}
+                      buttonText='Choose images'
+                      onChange={onImageChange}
+                      imgExtension={['.jpg', '.jpeg', '.gif', '.png', '.gif']}
+                      maxFileSize={80000}
+                      label={'Max file size: 80kb'}
+                      withLabel={true}
+                  />
+                </div>
+                <div className={"row"}>
+                  <div className={"col col-md-auto-12"}>
+                    <button className={"btn btn-warning"}
+                            onClick={onCreateClick}>Create
+                    </button>
+                    {isInvalidJob && <p className="text-danger">Please fill all
+                      fields</p>}
+                  </div>
                 </div>
               </div>
-
-
             </div>
           </div>
 

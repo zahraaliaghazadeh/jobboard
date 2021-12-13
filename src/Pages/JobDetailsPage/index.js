@@ -69,7 +69,8 @@ export default function JobDetails() {
   return (
       <div>
         <div className={"container job-details-post"} style={{
-          background: `linear-gradient(90deg, rgba(237,220,210,1) 0%, rgba(224,225,221,1) 48%, rgba(255,214,165,1) 100%)`
+          background: `linear-gradient(90deg, rgba(237,220,210,1) 0%, rgba(255,255,255,1) 48%, rgba(255,214,165,1) 100%)`
+          // background: `linear-gradient(90deg, rgba(237,220,210,1) 0%, rgba(224,225,221,1) 48%, rgba(255,214,165,1) 100%)`
           // background: `linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(224,225,221,1) 48%, rgba(255,214,165,1) 100%)`
           // background: `linear-gradient(to bottom,  ${color1} 0%,${color2} 100%)`
         }}>
