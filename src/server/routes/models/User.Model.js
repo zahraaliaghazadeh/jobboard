@@ -123,17 +123,6 @@ async function removeFavoriteJobId(userId, jobId) {
   });
 }
 
-// function getAllJobBoard() {
-//     return JobBoardModel.find().exec();
-// }
-//
-// function findJobBoardByName(name) {
-//     return JobBoardModel.find({name: name}).exec();
-// }
-//
-// function findJobBoardById(id) {
-//     return JobBoardModel.findById(id).exec();
-// }
 
 // Make sure to export a function after you create it!
 module.exports = {

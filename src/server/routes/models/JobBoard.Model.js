@@ -55,7 +55,4 @@ module.exports = {
   findJob,
   updateJob,
   deleteJob
-    // findJobBoardByName,
-    // getAllJobBoard,
-    // findJobBoardById
 };

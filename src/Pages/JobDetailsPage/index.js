@@ -64,6 +64,8 @@ export default function JobDetails() {
   const color2 = "#e0e1dd";
 
 
+
+
   return (
       <div>
         <div className={"container job-details-post"} style={{
@@ -95,7 +97,7 @@ export default function JobDetails() {
                           __html: draftToHtml(JSON.parse(job.description))
                         }}/>
                         <p>{job.email}</p>
-                        <div>{job.timestamp}</div>
+                        <div>{job.timestamp.replace("T", "  at ").replace(RegExp("\.[^.]*$"), "")}</div>
 
                         {
                           job.isLoggedIn ? (job.isFavorited ?
