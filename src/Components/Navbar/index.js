@@ -12,7 +12,6 @@ import {
 import {logout} from "../../service/api";
 import {
   Heart,
-  Person,
   PersonCheck,
   DoorClosed,
   FileEarmarkLock,

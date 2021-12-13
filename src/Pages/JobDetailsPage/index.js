@@ -60,10 +60,8 @@ export default function JobDetails() {
     // eslint-disable-next-line
   }, []);
 
-  const color1 = "#ffd6a5";
-  const color2 = "#e0e1dd";
-
-
+  // const color1 = "#ffd6a5";
+  // const color2 = "#e0e1dd";
 
 
   return (
@@ -98,7 +96,7 @@ export default function JobDetails() {
                           __html: draftToHtml(JSON.parse(job.description))
                         }}/>
                         <p>{job.email}</p>
-                        <div>{job.timestamp.replace("T", "  at ").replace(RegExp("\.[^.]*$"), "")}</div>
+                        <div>{job.timestamp.replace("T", "  at ").replace(RegExp("[^.]*$"), "")}</div>
 
                         {
                           job.isLoggedIn ? (job.isFavorited ?
