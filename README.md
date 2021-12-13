@@ -28,8 +28,8 @@ You can use username ```test``` and password ```test``` for logging in.
 
 ## Screenshots
 
-
-![Gif](./src/assets/images/gif1.gif) <br>
+Below, you see a demo of some of the functionalities of the app. <br>
+![Gif](./src/assets/images/gif2.gif) <br>
 
 
 
