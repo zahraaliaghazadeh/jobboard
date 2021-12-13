@@ -11,7 +11,7 @@ const CODE_INVALID_CREDENTIALS = 'INVALID_CREDENTIALS';
 
 const SALT_ROUNDS = 10;
 
-// https://www.amazon.com/dp/B074LRF639/
+
 
 // router.get('/test', function (req, res) {
 //   // res.send('Test');
