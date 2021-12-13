@@ -13,7 +13,7 @@
 
 .nav-item{
     margin-left: 20px;
-    /*cursor: default;*/
+    cursor: pointer;
 }
 
 
