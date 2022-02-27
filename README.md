@@ -17,7 +17,7 @@
 ## General info
 
 Job Board has CRUD functionality of a job posting with redirection to job details page.
-User is able to have a Favorites page, only visible to logged-in user
+User is able to have a Favorites page, only visible to logged-in users.
 This app uses Password Encryption, Rich Text Editor, Company Icon photo upload and Job Submission Tracker.
 
 <br>
