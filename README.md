@@ -1,5 +1,5 @@
 # [Job board](https://jobboard2021.herokuapp.com/)
-> A Full Stack job board application built with React, JavaScript, HTML, CSS
+> A Full Stack job board application built with React, JavaScript, HTML, CSS, MongoDB.
 
 ## Table of contents
 * [General info](#general-info)
@@ -16,8 +16,9 @@
 
 ## General info
 
-Battleship is a board game that pits 2 players against each other.
-This repo contains the free game which is where the user playing on one board and the normal game which has two boards and the user plays against the AI.
+Job Board has CRUD functionality of a job posting with redirection to job details page.
+User is able to have a Favorites page, only visible to logged-in user
+This app uses Password Encryption, Rich Text Editor, Company Icon photo upload and Job Submission Tracker.
 
 <br>
 
@@ -39,6 +40,7 @@ Below, you see a demo of some of the functionalities of the app. <br>
 * React
 * JavaScript
 * Bootstrap
+* MongoDB
 
 
 ## Setup
@@ -95,7 +97,7 @@ If a user tries to register an existing username
 If a user tries to register but their password and password verification don’t match
 
 * CRUD functionality of a job posting with redirection to job details page.
-* Favorites page, only visible to logged in user
+* Favorites page, only visible to logged-in user
 * Password Encryption
 * Rich Text Editor
 * Correct Post/Login Redirect 
